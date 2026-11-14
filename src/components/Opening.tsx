@@ -42,7 +42,10 @@ export function Opening({ guestName }: { guestName: string | null }) {
         </p>
 
         <button type="button" className={styles.seal} onClick={handleOpen} aria-label="Open the invitation">
-          <img src="/ornaments/mandala-full.svg" alt="" width={301} height={301} className={styles.mandala} />
+          <span className={styles.rings}>
+            <img src="/ornaments/mandala-outer.svg" alt="" width={301} height={301} className={styles.outer} />
+            <img src="/ornaments/mandala-inner.svg" alt="" width={301} height={301} className={styles.inner} />
+          </span>
         </button>
 
         {guestName ? (
