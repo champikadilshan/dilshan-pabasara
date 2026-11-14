@@ -1,0 +1,97 @@
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin: 0;
+  padding: 0.5rem 0 0;
+  list-style: none;
+}
+
+/* The gold thread draws down once the list scrolls into view */
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: linear-gradient(var(--gold), var(--hairline) 85%, transparent);
+  transform: translateX(-50%) scaleY(0);
+  transform-origin: top;
+  transition: transform 1.8s var(--ease) 200ms;
+}
+
+.timeline[data-reveal='visible']::before {
+  transform: translateX(-50%) scaleY(1);
+}
+
+.timeline[data-reveal] {
+  opacity: 1;
+  transform: none;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.75rem 1rem 0;
+  background: linear-gradient(transparent 1.5rem, var(--cream) 1.5rem);
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity 900ms var(--ease),
+    transform 900ms var(--ease);
+  transition-delay: calc(400ms + var(--i) * 250ms);
+}
+
+.timeline[data-reveal='visible'] .item {
+  opacity: 1;
+  transform: none;
+}
+
+.dot {
+  position: absolute;
+  top: 0.35rem;
+  left: 50%;
+  width: 0.7rem;
+  height: 0.7rem;
+  border: 1px solid var(--gold);
+  background: var(--cream);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.time {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.title {
+  margin: 0.35rem 0 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.note {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .timeline::before {
+    transform: translateX(-50%);
+  }
+
+  .item {
+    opacity: 1;
+    transform: none;
+  }
+}

@@ -1,0 +1,49 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, var(--column));
+  margin: 0 auto;
+  padding: clamp(4.5rem, 14vw, 6rem) 0 max(1rem, env(safe-area-inset-bottom));
+  text-align: center;
+}
+
+.closing {
+  padding: 0 var(--gutter);
+}
+
+.line {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-style: italic;
+}
+
+.names {
+  margin: 0.75rem 0 0;
+  font-family: var(--font-script);
+  font-size: clamp(2.6rem, 12vw, 3.2rem);
+  line-height: 1.2;
+}
+
+.amp {
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.date {
+  margin: 0.5rem 0 0;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+}
+
+.ornament {
+  width: 100%;
+  height: auto;
+  margin-top: 2.5rem;
+}

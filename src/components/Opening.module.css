@@ -1,0 +1,170 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
+  background: radial-gradient(90% 55% at 50% 48%, #fffdf7 0%, transparent 70%), var(--cream);
+  text-align: center;
+  transition: opacity 750ms var(--ease) 350ms;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  transition:
+    opacity 500ms var(--ease),
+    transform 700ms var(--ease);
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  animation: fadeUp 1s var(--ease) 0.1s both;
+}
+
+.names {
+  margin: -0.5rem 0 0;
+  font-family: var(--font-script);
+  font-size: clamp(2.4rem, 11vw, 3.2rem);
+  line-height: 1.2;
+  animation: fadeUp 1s var(--ease) 0.25s both;
+}
+
+.amp {
+  margin: 0 0.35em;
+  color: var(--gold);
+  font-family: var(--font-serif);
+  font-size: 0.6em;
+  font-style: italic;
+}
+
+.seal {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(68vw, 17rem);
+  aspect-ratio: 1;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: none;
+  cursor: pointer;
+  animation: fadeIn 1.4s var(--ease) 0.4s both;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.seal::after {
+  content: '';
+  position: absolute;
+  inset: -0.75rem;
+  border: 1px solid var(--hairline);
+  border-radius: 50%;
+  animation: pulse 2.8s var(--ease) 1.5s infinite;
+}
+
+.seal:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 1rem;
+}
+
+.mandala {
+  width: 100%;
+  height: auto;
+  animation: spin 120s linear infinite;
+  transition:
+    transform 1100ms var(--ease),
+    opacity 900ms var(--ease) 200ms;
+}
+
+.greeting {
+  margin: 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.5;
+  animation: fadeUp 1s var(--ease) 0.6s both;
+}
+
+.guest {
+  color: var(--ink);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.hint {
+  margin: 0;
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  animation:
+    fadeIn 1s var(--ease) 1s both,
+    breathe 2.8s ease-in-out 2s infinite;
+}
+
+/* Opening sequence */
+.overlay[data-phase='opening'] {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay[data-phase='opening'] .content {
+  transform: translateY(-4vh);
+}
+
+.overlay[data-phase='opening'] .mandala {
+  transform: scale(1.8) rotate(60deg);
+  opacity: 0;
+  animation-play-state: paused;
+}
+
+.overlay[data-phase='opening'] .seal::after {
+  animation: none;
+  opacity: 0;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.96);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes breathe {
+  50% {
+    opacity: 0.45;
+  }
+}
