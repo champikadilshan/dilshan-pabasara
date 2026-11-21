@@ -20,9 +20,9 @@ export const wedding = {
   timeLabel: '09.00 AM onwards',
 
   venue: {
-    name: 'The Dusk',
-    city: 'Negombo',
-    mapsUrl: 'https://www.google.com/maps/search/?api=1&query=The+Dusk+Negombo',
+    name: 'Green Valley Cottage',
+    city: 'Waradala',
+    mapsUrl: 'https://maps.app.goo.gl/rsAtcScxCtrKjp4i8',
   },
 
   // Shown under the RSVP heading when set, e.g. 'Kindly respond by 1 December 2026'.
@@ -31,7 +31,7 @@ export const wedding = {
 
   // Placeholder programme: replace with the real timings.
   programme: [
-    { time: '09.00 AM', title: 'Welcome', note: 'Guests arrive at The Dusk' },
+    { time: '09.00 AM', title: 'Welcome', note: 'Guests arrive at Green Valley Cottage' },
     { time: 'Auspicious time', title: 'Poruwa Ceremony', note: 'Blessings and traditional rituals' },
     { time: 'Afternoon', title: 'Lunch & Celebrations', note: 'Food, music and dancing' },
   ] satisfies ProgrammeItem[],
