@@ -68,7 +68,7 @@ export const wedding = {
     {
       when: 'Today',
       title: 'Life goes on, together',
-      text: 'Now we are both working, and life goes on, with each other by our side.',
+      text: 'Now we are both graduated and working, and life goes on, with each other by our side.',
       art: 'lotus',
     },
     {
