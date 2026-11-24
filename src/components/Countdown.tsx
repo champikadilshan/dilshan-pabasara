@@ -38,7 +38,7 @@ export function Countdown() {
   const isToday = remaining !== null && remaining <= 0;
 
   return (
-    <Section id="countdown" eyebrow="Counting down" title={isToday ? 'Today is the day' : 'Until we say “I do”'}>
+    <Section id="countdown" eyebrow="Counting down" title={isToday ? 'Today is the day' : 'Until our forever begins...'}>
       <Reveal className={styles.grid} delay={150}>
         {units.map((unit, index) => (
           <div key={unit.label} className={styles.cell}>

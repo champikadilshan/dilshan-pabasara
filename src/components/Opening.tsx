@@ -54,9 +54,9 @@ export function Opening({ guestName }: { guestName: string | null }) {
           <p className={styles.greeting}>You are warmly invited</p>
         )}
 
-        <p className={styles.hint} aria-hidden="true">
+        <button type="button" className={styles.hint} onClick={handleOpen}>
           Tap to open
-        </p>
+        </button>
       </div>
     </div>
   );

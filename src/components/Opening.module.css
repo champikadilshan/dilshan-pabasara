@@ -102,14 +102,25 @@
 
 .hint {
   margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
   color: var(--gold);
+  font: inherit;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   animation:
     fadeIn 1s var(--ease) 1s both,
     breathe 2.8s ease-in-out 2s infinite;
+}
+
+.hint:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 0.4rem;
 }
 
 /* Opening sequence */
