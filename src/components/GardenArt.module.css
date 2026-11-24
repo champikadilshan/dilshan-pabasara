@@ -1,0 +1,149 @@
+/* Lotus petals unfold from a closed bud. Each petal rotates about the base of the flower. */
+.petal {
+  transform-box: view-box;
+  transform-origin: 0 0;
+  transform: rotate(var(--r)) scale(var(--s));
+}
+
+.bloomLoad .petal {
+  animation: unfold 1.8s var(--ease) calc(var(--d) + var(--pd)) both;
+}
+
+:global(html[data-opened]) .bloomOpen .petal {
+  animation: unfold 1.8s var(--ease) calc(var(--d) + var(--pd)) both;
+}
+
+.vein {
+  animation: fadeIn 1s ease calc(var(--d, 0ms) + 900ms) both;
+}
+
+@keyframes unfold {
+  from {
+    transform: rotate(0deg) scale(calc(var(--s) * 0.82));
+  }
+}
+
+/* Pond ripples */
+.ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0;
+  animation: ripple 4.8s ease-out calc(1.4s + var(--rd, 0s)) infinite;
+}
+
+@keyframes ripple {
+  0% {
+    opacity: 0.9;
+    transform: scale(0.6);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2.1);
+  }
+}
+
+/* String lights */
+.glow {
+  opacity: 0;
+  animation: twinkle 2.4s ease-in-out var(--tw) infinite;
+}
+
+@keyframes twinkle {
+  50% {
+    opacity: 0.85;
+  }
+}
+
+/* Lanterns swing gently from their strings */
+.lantern {
+  transform-box: fill-box;
+  transform-origin: 50% 0;
+  animation: sway 5s ease-in-out var(--sd, 0s) infinite;
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(4deg);
+  }
+}
+
+/* Trees breathing in the breeze */
+.leaves {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: breeze 7s ease-in-out infinite;
+}
+
+@keyframes breeze {
+  50% {
+    transform: translateX(2px) scale(1.012);
+  }
+}
+
+/* The gold arch draws itself on the opening screen */
+.archLine {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 2.2s var(--ease) 0.2s forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+}
+
+/* Falling petals */
+.petals {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.falling {
+  position: absolute;
+  top: -40px;
+  width: calc(var(--size) * 1.35);
+  height: calc(var(--size) * 2.7);
+  opacity: 0;
+  filter: drop-shadow(0 2px 3px rgba(61, 70, 52, 0.12));
+}
+
+.petalsLoop .falling {
+  animation: fall var(--dur) linear var(--delay) infinite;
+}
+
+:global(html[data-opened]) .petalsOnce .falling {
+  animation: fall var(--dur) linear calc(var(--delay) + 0.6s) 1 both;
+}
+
+@keyframes fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  8% {
+    opacity: 0.95;
+  }
+  50% {
+    transform: translate3d(var(--drift), 55vh, 0) rotate(calc(var(--spin) / 2));
+  }
+  88% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(calc(var(--drift) * -0.4), 108vh, 0) rotate(var(--spin));
+  }
+}

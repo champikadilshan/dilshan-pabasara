@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-30 -34 60 42" width="60" height="42" fill="none">
+<g id="lotus">
+<ellipse cx="-15" cy="2" rx="17" ry="4.5" fill="#B7C4A0"/>
+<ellipse cx="15" cy="2.5" rx="17" ry="4.5" fill="#A9B892"/>
+<g fill="#FFFFFF" stroke="#D8D1BE" stroke-width="0.8" stroke-linejoin="round">
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(-72) scale(0.78)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(72) scale(0.78)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(-44) scale(0.92)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(44) scale(0.92)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(-17)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="rotate(17)"/>
+<path d="M0 0 C -7 -9 -7 -21 0 -30 C 7 -21 7 -9 0 0 Z" transform="scale(1.08)"/>
+</g>
+<path d="M0 -5 V -24" stroke="#E9E2CF" stroke-width="0.7"/>
+</g>
+</svg>

@@ -1,16 +1,27 @@
 :root {
-  /* Palette taken from the printed invitation card */
-  --cream: #fbf6ea;
-  --cream-deep: #f7eedc;
-  --gold-wash: #f3e6cb;
-  --gold-pale: #f3e2b4;
-  --gold-soft: #ebcb7e;
+  /* Palette taken from the V3c "garden in an arch window" card: white lotus with a green touch */
+  --cream: #fcfbf7;
+  --cream-deep: #eef2e6;
+  --gold-wash: #f3ecdc;
+  --gold-pale: #e3d5b8;
+  --gold-soft: #cdae72;
   --gold: #8c6d2f;
+  --gold-line: #a88a4a;
   --ink: #2b2620;
-  --ink-soft: #5a534a;
-  --hairline: rgba(140, 109, 47, 0.35);
+  --ink-soft: #4a443b;
+  --hairline: rgba(168, 138, 74, 0.38);
 
-  --font-script: 'Pinyon Script', cursive;
+  /* Green touch */
+  --sage-wash: #eef2e6;
+  --sage: #c9d4b8;
+  --sage-deep: #afbf97;
+  --leaf: #a9bb8c;
+  --olive: #3d4634;
+  --petal: #ffffff;
+  --petal-line: #d8d1be;
+
+  /* Names and display lines: Cormorant Garamond Light, as on the card */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Jost', system-ui, sans-serif;
 
@@ -33,7 +44,7 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: radial-gradient(120% 60% at 50% 0%, #fffdf7 0%, transparent 60%), var(--cream);
+  background: radial-gradient(120% 60% at 50% 0%, #ffffff 0%, transparent 60%), var(--cream);
   color: var(--ink);
   font-family: var(--font-sans);
   font-weight: 300;
@@ -59,7 +70,7 @@ a {
 }
 
 ::selection {
-  background: var(--gold-pale);
+  background: var(--sage);
   color: var(--ink);
 }
 

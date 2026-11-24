@@ -1,18 +1,12 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { Cormorant_Garamond, Jost, Pinyon_Script } from 'next/font/google';
+import { Cormorant_Garamond, Jost } from 'next/font/google';
 import { coupleNames, wedding } from '@/config/wedding';
 import './globals.css';
 
-const script = Pinyon_Script({
-  subsets: ['latin'],
-  weight: '400',
-  variable: '--font-script',
-});
-
 const serif = Cormorant_Garamond({
   subsets: ['latin'],
-  weight: ['400', '500'],
+  weight: ['300', '400', '500'],
   style: ['normal', 'italic'],
   variable: '--font-serif',
 });
@@ -29,7 +23,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: '#fbf6ea',
+  themeColor: '#fcfbf7',
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
@@ -37,7 +31,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en" className={`${script.variable} ${serif.variable} ${sans.variable}`}>
+    <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
         <noscript>
           <style>

@@ -53,13 +53,15 @@
 
 .dot {
   position: absolute;
-  top: 0.35rem;
+  top: 0.3rem;
   left: 50%;
-  width: 0.7rem;
-  height: 0.7rem;
-  border: 1px solid var(--gold);
-  background: var(--cream);
-  transform: translateX(-50%) rotate(45deg);
+  width: 0.85rem;
+  height: 0.85rem;
+  border: 2px solid var(--cream);
+  border-radius: 50%;
+  background: var(--leaf);
+  box-shadow: 0 0 0 1px var(--gold-line);
+  transform: translateX(-50%);
 }
 
 .time {

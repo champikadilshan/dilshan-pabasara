@@ -5,12 +5,15 @@
   display: grid;
   place-items: center;
   padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
-  background: radial-gradient(90% 55% at 50% 48%, #fffdf7 0%, transparent 70%), var(--cream);
+  background:
+    radial-gradient(90% 55% at 50% 48%, #ffffff 0%, transparent 70%),
+    linear-gradient(transparent 82%, var(--sage-wash)), var(--cream);
   text-align: center;
   transition: opacity 750ms var(--ease) 350ms;
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +35,8 @@
 
 .names {
   margin: -0.5rem 0 0;
-  font-family: var(--font-script);
+  font-family: var(--font-display);
+  font-weight: 300;
   font-size: clamp(2.4rem, 11vw, 3.2rem);
   line-height: 1.2;
   animation: fadeUp 1s var(--ease) 0.25s both;
@@ -50,11 +54,11 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: min(68vw, 17rem);
-  aspect-ratio: 1;
+  width: min(56vw, 14rem, 34vh);
+  aspect-ratio: 240 / 300;
   padding: 0;
   border: 0;
-  border-radius: 50%;
+  border-radius: 999px 999px 0 0;
   background: none;
   cursor: pointer;
   animation: fadeIn 1.4s var(--ease) 0.4s both;
@@ -64,9 +68,11 @@
 .seal::after {
   content: '';
   position: absolute;
-  inset: -0.75rem;
+  inset: -0.75rem -0.75rem 0;
   border: 1px solid var(--hairline);
-  border-radius: 50%;
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  transform-origin: 50% 100%;
   animation: pulse 2.8s var(--ease) 1.5s infinite;
 }
 
@@ -117,14 +123,25 @@
 
 .hint {
   margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
   color: var(--gold);
+  font: inherit;
   font-size: 0.7rem;
   font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
   animation:
     fadeIn 1s var(--ease) 1s both,
     breathe 2.8s ease-in-out 2s infinite;
+}
+
+.hint:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 0.4rem;
 }
 
 /* Opening sequence */
@@ -161,20 +178,20 @@
   }
 }
 
-@keyframes spin {
-  to {
-    rotate: 360deg;
+@keyframes float {
+  50% {
+    translate: 0 -6px;
   }
 }
 
 @keyframes pulse {
   0% {
     opacity: 0.9;
-    transform: scale(0.96);
+    transform: scale(0.97);
   }
   100% {
     opacity: 0;
-    transform: scale(1.12);
+    transform: scale(1.08);
   }
 }
 

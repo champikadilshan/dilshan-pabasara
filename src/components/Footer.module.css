@@ -22,7 +22,8 @@
 
 .names {
   margin: 0.75rem 0 0;
-  font-family: var(--font-script);
+  font-family: var(--font-display);
+  font-weight: 300;
   font-size: clamp(2.6rem, 12vw, 3.2rem);
   line-height: 1.2;
 }
