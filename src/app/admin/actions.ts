@@ -1,8 +1,17 @@
 'use server';
 
+import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
-import { adminConfigured, adminCookieMaxAge, adminCookieName, passwordMatches, sessionValue } from '@/lib/admin';
+import {
+  adminConfigured,
+  adminCookieMaxAge,
+  adminCookieName,
+  isAdmin,
+  passwordMatches,
+  sessionValue,
+} from '@/lib/admin';
+import { ensureSchema, getSql } from '@/lib/db';
 
 export async function login(_previous: string | null, formData: FormData): Promise<string | null> {
   if (!adminConfigured()) {
@@ -29,4 +38,20 @@ export async function login(_previous: string | null, formData: FormData): Promi
 export async function logout() {
   (await cookies()).delete({ name: adminCookieName, path: '/admin' });
   redirect('/admin');
+}
+
+export async function deleteWish(formData: FormData) {
+  if (!(await isAdmin())) {
+    redirect('/admin');
+  }
+
+  const id = Number(formData.get('id'));
+  if (!Number.isInteger(id) || id < 1) return;
+
+  const sql = getSql();
+  if (!sql) redirect('/admin');
+
+  await ensureSchema(sql);
+  await sql`DELETE FROM wishes WHERE id = ${id}`;
+  revalidatePath('/admin');
 }

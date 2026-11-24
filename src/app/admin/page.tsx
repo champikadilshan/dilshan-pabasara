@@ -3,6 +3,7 @@ import shared from '@/components/shared.module.css';
 import { coupleNames } from '@/config/wedding';
 import { formatTime, isAdmin, loadAdminData } from '@/lib/admin';
 import { logout } from './actions';
+import { DeleteWishButton } from './DeleteWishButton';
 import { LoginForm } from './LoginForm';
 import styles from './admin.module.css';
 
@@ -163,9 +164,12 @@ export default async function AdminPage() {
                 {data.wishes.map((wish) => (
                   <li key={wish.id}>
                     <p className={styles.wishText}>{wish.message}</p>
-                    <p className={styles.wishBy}>
-                      {wish.name} · {formatTime(wish.created_at)}
-                    </p>
+                    <div className={styles.wishFoot}>
+                      <p className={styles.wishBy}>
+                        {wish.name} · {formatTime(wish.created_at)}
+                      </p>
+                      <DeleteWishButton id={wish.id} name={wish.name} />
+                    </div>
                   </li>
                 ))}
               </ul>
