@@ -5,6 +5,19 @@ import styles from './Hero.module.css';
 
 const delay = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
 
+// Date pieces for the card-style date row, read from startsAt in Sri Lanka time.
+const dateParts = (() => {
+  const at = new Date(wedding.startsAt);
+  const part = (options: Intl.DateTimeFormatOptions) =>
+    new Intl.DateTimeFormat('en-GB', { timeZone: 'Asia/Colombo', ...options }).format(at);
+  return {
+    weekday: part({ weekday: 'long' }),
+    day: part({ day: 'numeric' }),
+    month: part({ month: 'long' }),
+    year: part({ year: 'numeric' }),
+  };
+})();
+
 export function Hero({ guestName }: { guestName: string | null }) {
   return (
     <header className={styles.hero}>
@@ -16,7 +29,8 @@ export function Hero({ guestName }: { guestName: string | null }) {
           You are invited
         </p>
         <p className={styles.hosts} data-hero="fade" style={delay(850)}>
-          {wedding.hosts} {wedding.invitationLine}
+          <span className={styles.hostNames}>{wedding.hosts}</span>
+          <span className={styles.invitation}>{wedding.invitationLine}</span>
         </p>
 
         <h1 className={styles.names}>
@@ -31,23 +45,42 @@ export function Hero({ guestName }: { guestName: string | null }) {
           </span>
         </h1>
 
-        <p className={styles.date} data-hero="fade" style={delay(2550)}>
-          {wedding.dateLabel}
-        </p>
-        <p className={styles.details} data-hero="fade" style={delay(2650)}>
-          {wedding.timeLabel}
-        </p>
-        <p className={styles.venue} data-hero="fade" style={delay(2750)}>
-          {wedding.venue.name}
-          <span className={styles.city}>{wedding.venue.city}</span>
-        </p>
-        <p className={styles.ceremony} data-hero="fade" style={delay(2850)}>
-          {wedding.ceremonyLine}
-        </p>
+        <div className={styles.divider} data-hero="fade" style={delay(2450)} aria-hidden="true">
+          <img src="/ornaments/lotus-mark.svg" alt="" width={60} height={42} />
+        </div>
 
-        <div className={styles.guestLine} data-hero="fade" style={delay(3050)}>
-          <p className={styles.guestLead}>We look forward to celebrating with</p>
-          <p className={styles.guestName}>{guestName ?? 'you'}</p>
+        <div className={styles.when} data-hero="fade" style={delay(2600)}>
+          <time className={styles.dateRow} dateTime={wedding.startsAt}>
+            <span className="visually-hidden">{wedding.dateLabel}</span>
+            <span className={styles.dateSide} aria-hidden="true">
+              {dateParts.weekday}
+            </span>
+            <span className={styles.dateDay} aria-hidden="true">
+              {dateParts.day}
+            </span>
+            <span className={styles.dateSide} aria-hidden="true">
+              {dateParts.month}
+              <span className={styles.dateYear}>{dateParts.year}</span>
+            </span>
+          </time>
+          <p className={styles.time}>{wedding.timeLabel}</p>
+        </div>
+
+        <div className={styles.where} data-hero="fade" style={delay(2800)}>
+          <p className={styles.label}>Venue</p>
+          <p className={styles.venue}>{wedding.venue.name}</p>
+          <p className={styles.city}>{wedding.venue.city}</p>
+        </div>
+
+        <div className={styles.guestLine} data-hero="fade" style={delay(3000)}>
+          {guestName ? (
+            <>
+              <p className={styles.guestLead}>We look forward to celebrating with</p>
+              <p className={styles.guestName}>{guestName}</p>
+            </>
+          ) : (
+            <p className={styles.guestLead}>We look forward to celebrating with you</p>
+          )}
         </div>
       </div>
 
