@@ -20,4 +20,5 @@ CREATE TABLE IF NOT EXISTS wishes (
 -- Handy queries for the Neon SQL editor:
 -- SELECT * FROM rsvps ORDER BY created_at DESC;
 -- SELECT SUM(guests) AS total_guests FROM rsvps WHERE attending;
--- DELETE FROM wishes WHERE id = <id>;  -- remove an unwanted wish
+-- Wishes can also be removed from /admin. SQL fallback:
+-- DELETE FROM wishes WHERE id = <id>;
