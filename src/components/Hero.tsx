@@ -47,7 +47,7 @@ export function Hero({ guestName }: { guestName: string | null }) {
 
         <div className={styles.guestLine} data-hero="fade" style={delay(3050)}>
           <p className={styles.guestLead}>We look forward to celebrating with</p>
-          <p className={styles.guestName}>{guestName ?? 'you & your family'}</p>
+          <p className={styles.guestName}>{guestName ?? 'you'}</p>
         </div>
       </div>
 
