@@ -56,9 +56,9 @@ export const wedding = {
   // Each chapter picks a drawing with `art`: camera, lanterns, lotus, rings or register.
   story: [
     {
-      when: 'Himidiraya · on campus',
+      when: 'Himidiraya · on university',
       title: 'Behind the camera',
-      text: 'We met at campus during Himidiraya, both volunteering to film the event.',
+      text: 'We met at university during "Himidiraya" event, both volunteering to film the event.',
       art: 'camera',
     },
     {
