@@ -29,8 +29,6 @@ export const wedding = {
   dateLabel: 'Friday, 11 December 2026',
   shortDateLabel: '11 · 12 · 2026',
   timeLabel: '09.00 AM onwards',
-  // Same line as on the card, shown under the venue in the header.
-  ceremonyLine: 'Registration & ring exchange · followed by lunch',
 
   venue: {
     name: 'Green Valley Garden Cottage',
