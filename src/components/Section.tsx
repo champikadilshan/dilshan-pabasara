@@ -15,7 +15,7 @@ export function Section({ id, eyebrow, title, lead, children }: SectionProps) {
   return (
     <section id={id} className={styles.section} aria-labelledby={`${id}-title`}>
       <div className={shared.divider} aria-hidden="true">
-        <span className={shared.dividerMark} />
+        <img src="/ornaments/lotus-mark.svg" alt="" width={60} height={42} className={shared.dividerMark} />
       </div>
       <Reveal className={styles.header}>
         <p className={shared.eyebrow}>{eyebrow}</p>

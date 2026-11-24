@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { wedding } from '@/config/wedding';
+import { OpeningScene, Petals } from './GardenArt';
 import styles from './Opening.module.css';
 
 type Phase = 'closed' | 'opening' | 'open';
@@ -33,6 +34,7 @@ export function Opening({ guestName }: { guestName: string | null }) {
 
   return (
     <div className={styles.overlay} data-opening data-phase={phase}>
+      <Petals loop />
       <div className={styles.content}>
         <p className={styles.eyebrow}>The wedding of</p>
         <p className={styles.names}>
@@ -42,7 +44,7 @@ export function Opening({ guestName }: { guestName: string | null }) {
         </p>
 
         <button type="button" className={styles.seal} onClick={handleOpen} aria-label="Open the invitation">
-          <img src="/ornaments/mandala-full.svg" alt="" width={301} height={301} className={styles.mandala} />
+          <OpeningScene className={styles.art} />
         </button>
 
         {guestName ? (

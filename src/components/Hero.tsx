@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react';
 import { wedding } from '@/config/wedding';
+import { HeroScene, Petals } from './GardenArt';
 import styles from './Hero.module.css';
 
 const delay = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
@@ -7,15 +8,8 @@ const delay = (ms: number) => ({ '--d': `${ms}ms` }) as CSSProperties;
 export function Hero({ guestName }: { guestName: string | null }) {
   return (
     <header className={styles.hero}>
-      <img
-        src="/ornaments/mandala-half.svg"
-        alt=""
-        width={301}
-        height={151}
-        className={styles.mandala}
-        data-hero="drop"
-        style={delay(250)}
-      />
+      <Petals />
+      <HeroScene className={styles.arch} data-hero="rise" style={delay(200)} />
 
       <div className={styles.body}>
         <p className={styles.eyebrow} data-hero="fade" style={delay(700)}>
@@ -30,7 +24,7 @@ export function Hero({ guestName }: { guestName: string | null }) {
             {wedding.couple.first}
           </span>
           <span className={styles.and} data-hero="fade" style={delay(1750)}>
-            and
+            &amp;
           </span>
           <span className={styles.name} data-hero="write" style={delay(1900)}>
             {wedding.couple.second}
@@ -40,24 +34,24 @@ export function Hero({ guestName }: { guestName: string | null }) {
         <p className={styles.date} data-hero="fade" style={delay(2550)}>
           {wedding.dateLabel}
         </p>
-        <p className={styles.details} data-hero="fade" style={delay(2700)}>
-          {wedding.timeLabel} · {wedding.venue.name}, {wedding.venue.city}
+        <p className={styles.details} data-hero="fade" style={delay(2650)}>
+          {wedding.timeLabel}
+        </p>
+        <p className={styles.venue} data-hero="fade" style={delay(2750)}>
+          {wedding.venue.name}
+          <span className={styles.city}>{wedding.venue.city}</span>
+        </p>
+        <p className={styles.ceremony} data-hero="fade" style={delay(2850)}>
+          {wedding.ceremonyLine}
         </p>
 
-        <p className={styles.guestLine} data-hero="fade" style={delay(2900)}>
-          {guestName ? (
-            <>
-              <span>Mr. / Mrs.:</span>
-              <span className={styles.guestName}>{guestName}</span>
-              <span>You / Your Family Are Invited!</span>
-            </>
-          ) : (
-            <span>You &amp; Your Family Are Invited!</span>
-          )}
-        </p>
+        <div className={styles.guestLine} data-hero="fade" style={delay(3050)}>
+          <p className={styles.guestLead}>We look forward to celebrating with</p>
+          <p className={styles.guestName}>{guestName ?? 'you & your family'}</p>
+        </div>
       </div>
 
-      <a href="#countdown" className={styles.cue} data-hero="fade" style={delay(3400)}>
+      <a href="#countdown" className={styles.cue} data-hero="fade" style={delay(3500)}>
         <span>Scroll</span>
         <span className={styles.cueLine} aria-hidden="true" />
       </a>

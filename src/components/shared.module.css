@@ -30,7 +30,7 @@
   justify-content: center;
   gap: 0.75rem;
   margin: 0 auto;
-  width: min(14rem, 60%);
+  width: min(16rem, 70%);
   color: var(--gold);
 }
 
@@ -43,10 +43,8 @@
 }
 
 .dividerMark {
-  width: 6px;
-  height: 6px;
-  border: 1px solid currentColor;
-  transform: rotate(45deg);
+  width: 2.6rem;
+  height: auto;
 }
 
 .button {
@@ -97,6 +95,6 @@
 
 .buttonSolid:hover,
 .buttonSolid:focus-visible {
-  background: var(--ink);
-  border-color: var(--ink);
+  background: var(--olive);
+  border-color: var(--olive);
 }

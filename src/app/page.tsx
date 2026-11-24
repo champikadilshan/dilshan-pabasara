@@ -12,7 +12,7 @@ import { coupleNames, wedding } from '@/config/wedding';
 import { parseGuestName } from '@/lib/guest';
 
 type PageProps = {
-  searchParams: Promise<{ guest?: string | string[] }>;
+  searchParams: Promise<{ guest?: string | string[]; album?: string | string[] }>;
 };
 
 export async function generateMetadata({ searchParams }: PageProps): Promise<Metadata> {
@@ -30,7 +30,9 @@ export async function generateMetadata({ searchParams }: PageProps): Promise<Met
 }
 
 export default async function Home({ searchParams }: PageProps) {
-  const guestName = parseGuestName((await searchParams).guest);
+  const params = await searchParams;
+  const guestName = parseGuestName(params.guest);
+  const previewAlbum = params.album === 'open';
 
   return (
     <>
@@ -40,7 +42,7 @@ export default async function Home({ searchParams }: PageProps) {
         <Countdown />
         <Programme />
         <Venue />
-        <Gallery />
+        <Gallery previewAlbum={previewAlbum} />
         <Rsvp guestName={guestName} />
         <Wishes guestName={guestName} />
       </main>

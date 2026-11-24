@@ -120,7 +120,8 @@
 .thanksScript {
   margin: 0;
   color: var(--ink);
-  font-family: var(--font-script);
+  font-family: var(--font-display);
+  font-weight: 300;
   font-size: 3.4rem;
   line-height: 1.2;
 }

@@ -5,12 +5,15 @@
   display: grid;
   place-items: center;
   padding: max(1.5rem, env(safe-area-inset-top)) 1.5rem max(1.5rem, env(safe-area-inset-bottom));
-  background: radial-gradient(90% 55% at 50% 48%, #fffdf7 0%, transparent 70%), var(--cream);
+  background:
+    radial-gradient(90% 55% at 50% 48%, #ffffff 0%, transparent 70%),
+    linear-gradient(transparent 82%, var(--sage-wash)), var(--cream);
   text-align: center;
   transition: opacity 750ms var(--ease) 350ms;
 }
 
 .content {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,7 +35,8 @@
 
 .names {
   margin: -0.5rem 0 0;
-  font-family: var(--font-script);
+  font-family: var(--font-display);
+  font-weight: 300;
   font-size: clamp(2.4rem, 11vw, 3.2rem);
   line-height: 1.2;
   animation: fadeUp 1s var(--ease) 0.25s both;
@@ -50,11 +54,11 @@
   position: relative;
   display: grid;
   place-items: center;
-  width: min(68vw, 17rem);
-  aspect-ratio: 1;
+  width: min(56vw, 14rem, 34vh);
+  aspect-ratio: 240 / 300;
   padding: 0;
   border: 0;
-  border-radius: 50%;
+  border-radius: 999px 999px 0 0;
   background: none;
   cursor: pointer;
   animation: fadeIn 1.4s var(--ease) 0.4s both;
@@ -64,9 +68,11 @@
 .seal::after {
   content: '';
   position: absolute;
-  inset: -0.75rem;
+  inset: -0.75rem -0.75rem 0;
   border: 1px solid var(--hairline);
-  border-radius: 50%;
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  transform-origin: 50% 100%;
   animation: pulse 2.8s var(--ease) 1.5s infinite;
 }
 
@@ -75,10 +81,11 @@
   outline-offset: 1rem;
 }
 
-.mandala {
+.art {
+  display: block;
   width: 100%;
   height: auto;
-  animation: spin 120s linear infinite;
+  animation: float 6s ease-in-out 2.6s infinite;
   transition:
     transform 1100ms var(--ease),
     opacity 900ms var(--ease) 200ms;
@@ -133,8 +140,8 @@
   transform: translateY(-4vh);
 }
 
-.overlay[data-phase='opening'] .mandala {
-  transform: scale(1.8) rotate(60deg);
+.overlay[data-phase='opening'] .art {
+  transform: scale(1.6);
   opacity: 0;
   animation-play-state: paused;
 }
@@ -157,20 +164,20 @@
   }
 }
 
-@keyframes spin {
-  to {
-    rotate: 360deg;
+@keyframes float {
+  50% {
+    translate: 0 -6px;
   }
 }
 
 @keyframes pulse {
   0% {
     opacity: 0.9;
-    transform: scale(0.96);
+    transform: scale(0.97);
   }
   100% {
     opacity: 0;
-    transform: scale(1.12);
+    transform: scale(1.08);
   }
 }
 

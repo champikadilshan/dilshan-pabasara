@@ -1,0 +1,273 @@
+.page {
+  width: min(100%, 64rem);
+  margin: 0 auto;
+  padding: clamp(2.5rem, 8vw, 4rem) var(--gutter) 4rem;
+}
+
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.title {
+  margin: 0.4rem 0 0;
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 8vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.1;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  width: min(100%, 20rem);
+  margin: 2.5rem auto 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+.label {
+  color: var(--gold);
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.input {
+  width: 100%;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--hairline);
+  border-radius: 0.75rem;
+  background: #ffffff;
+  font-size: 1rem;
+}
+
+.input:focus {
+  border-color: var(--gold);
+  outline: none;
+}
+
+.error {
+  margin: 0;
+  color: #9a3b2f;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.notice {
+  margin: 2.5rem auto 0;
+  max-width: 32rem;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid var(--hairline);
+  border-radius: 1rem;
+  background: var(--sage-wash);
+  text-align: center;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  margin: 2.5rem 0 0;
+  border-block: 1px solid var(--hairline);
+}
+
+.stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 1.25rem 0.25rem 1rem;
+}
+
+.stats div + div {
+  border-left: 1px solid var(--hairline);
+}
+
+.stats dt {
+  color: var(--gold);
+  font-size: 0.62rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.stats dd {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  line-height: 1;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
+.block {
+  margin-top: 2.75rem;
+}
+
+.subtitle {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.summary {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.hint {
+  margin: 0.3rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+}
+
+.empty {
+  margin: 1rem 0 0;
+  color: var(--ink-soft);
+  font-family: var(--font-serif);
+  font-style: italic;
+}
+
+.tableBox {
+  margin-top: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--hairline);
+  border-radius: 0.9rem;
+  background: #ffffff;
+}
+
+.table {
+  width: 100%;
+  min-width: 40rem;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+.table th,
+.table td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid rgba(168, 138, 74, 0.2);
+  text-align: left;
+  vertical-align: top;
+}
+
+.table th {
+  background: var(--sage-wash);
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.num {
+  text-align: right !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.note {
+  max-width: 16rem;
+  color: var(--ink-soft);
+}
+
+.when {
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.muted {
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.yes,
+.no {
+  display: inline-block;
+  padding: 0.1rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.yes {
+  background: #e3ebd6;
+  color: #3d4634;
+}
+
+.no {
+  background: #f3ecdc;
+  color: #6b5222;
+}
+
+.badge {
+  margin-left: 0.4rem;
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.wishes {
+  display: grid;
+  gap: 0.75rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wishes li {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--hairline);
+  border-radius: 0.9rem;
+  background: #ffffff;
+}
+
+.wishText {
+  margin: 0;
+  white-space: pre-line;
+}
+
+.wishBy {
+  margin: 0.4rem 0 0;
+  color: var(--gold);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 520px) {
+  .stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .stats div:nth-child(3) {
+    border-left: 0;
+  }
+
+  .stats div:nth-child(n + 3) {
+    border-top: 1px solid var(--hairline);
+  }
+}

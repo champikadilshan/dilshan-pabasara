@@ -12,7 +12,7 @@ export function Footer() {
         </p>
         <p className={styles.date}>{wedding.shortDateLabel}</p>
       </Reveal>
-      <img src="/ornaments/footer-ornament.svg" alt="" width={540} height={124} className={styles.ornament} />
+      <img src="/ornaments/footer-garden.svg" alt="" width={540} height={124} className={styles.ornament} />
     </footer>
   );
 }
